@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>警察庁 交通事故マップ</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <div id="map"></div>
+    <div id="county-legend" class="legend">
+      <div class="circle" style="background-color:#ff003f;outline:1px solid #fff;display:inline-block"></div>
+      <span style="display:inline-block;margin-left:5px">死亡事故</span><br />
+      <div class="circle" style="background-color:#003fff;outline:1px solid #fff;display:inline-block"></div>
+      <span style="display:inline-block;margin-left:5px">負傷事故</span><br />
+      <div class="circle" style="background-color:#009800;outline:1px solid #fff;display:inline-block"></div>
+      <span style="display:inline-block;margin-left:5px">小学校</span><br />
+      <div class="square" style="background-color:rgb(213,241,228);outline:1px solid rgb(45,186,118);display:inline-block"></div>
+      <span style="margin-left:5px">最高速度(区域)30km/h<br />(ゾーン30等含む)</span>
+    </div>
+    <div class="map-overlay top">
+      <div class="map-overlay-inner">
+        <label>空中写真 不透明度: <span id="slider-opacity-value">50%</span></label>
+        <input id="slider-opacity" type="range" min="0" max="100" step="0" value="50" />
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
