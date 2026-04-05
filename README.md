@@ -1,9 +1,5 @@
 # 警察庁 交通事故マップ on MapLibre GL JS
 
-## Public Website
-https://shiwaku.github.io/npa-traffic-accident-map/#15/35.92275/139.48775
-
-<img width="1912" height="897" alt="image" src="https://github.com/user-attachments/assets/a07a2740-017b-42ca-ae7f-39ecb9f717ca" />
 
 ## 技術スタック
 - [MapLibre GL JS](https://maplibre.org/maplibre-gl-js/docs/) v5.22.0
