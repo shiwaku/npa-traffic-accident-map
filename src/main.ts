@@ -22,7 +22,7 @@ maplibregl.addProtocol("pmtiles", protocol.tile.bind(protocol));
 // マップの初期化
 const map = new maplibregl.Map({
   container: "map",
-  style: "/std.json",
+  style: `${import.meta.env.BASE_URL}std.json`,
   zoom: 15,
   maxZoom: 23,
   minZoom: 4,
