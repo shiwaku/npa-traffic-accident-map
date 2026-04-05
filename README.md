@@ -1,5 +1,7 @@
 # 警察庁 交通事故マップ
 
+## Public Website
+https://shiwaku.github.io/npa-traffic-accident-map/
 
 ## 技術スタック
 - [MapLibre GL JS](https://maplibre.org/maplibre-gl-js/docs/) v5.22.0
@@ -8,7 +10,7 @@
 - [@watergis/maplibre-gl-terradraw](https://github.com/watergis/maplibre-gl-terradraw) v1
 - [Vite](https://vitejs.dev/) v5
 - [TypeScript](https://www.typescriptlang.org/) v5
-- Node.js v20+
+- Node.js v24+
 
 ## セットアップ
 
