@@ -38,6 +38,24 @@ npm run build # プロダクションビルド
 - `main` ブランチへの push で GitHub Actions が自動ビルド・デプロイ
 - 公開 URL: https://shiwaku.github.io/npa-traffic-accident-map/
 
+## UI 設計
+
+### スタイル方針
+- CSS カスタムプロパティ（`--font`, `--radius`, `--shadow`, `--panel-bg`, `--border`, `--text`, `--text-muted`, `--accent-*`）で一元管理
+- パネル（凡例・スライダー）は `backdrop-filter: blur(10px)` によるガラスモーフィズム
+- スマホ（`max-width: 520px`）では両パネルを 140px に縮小し重なりを回避
+
+### パネル配置
+| パネル | 位置 |
+|---|---|
+| 空中写真 不透明度スライダー | 左下（`bottom: 36px; left: 10px`） |
+| 凡例 | 右下（`bottom: 36px; right: 10px`） |
+
+### ポップアップ
+- `buildPopupHtml()` でカード型 HTML を生成（`<font>/<big>` 等の非推奨タグは使わない）
+- 構成: カラーヘッダー → 事故情報グリッド → 当事者テーブル → 座標 → リンクボタン
+- 死亡事故は `#e8003a`、負傷事故は `#003de0` のヘッダー色
+
 ## 重要な設定
 
 ### Vite base パス
