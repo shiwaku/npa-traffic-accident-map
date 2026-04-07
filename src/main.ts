@@ -346,9 +346,33 @@ function buildPopupHtml(
   const jikonaiyo = props["事故内容"] as string;
   const shishasu = parseInt(props["死者数"] as string);
   const fushoshasu = parseInt(props["負傷者数"] as string);
-  const hasseinichiji = `${props["発生日時_年"]}年${props["発生日時_月"]}月${props["発生日時_日"]}日${props["発生日時_時"]}時${props["発生日時_分"]}分`;
+  const hasseinichiji = `${props["発生日時_年"]}年${props["発生日時_月"]}月${props["発生日時_日"]}日 ${props["発生日時_時"]}時${props["発生日時_分"]}分`;
+  const headerColor = accentColor === "red" ? "#e8003a" : "#003de0";
 
-  const rows: [string, string, string][] = [
+  const infoRows: [string, string][] = [
+    ["路線名", props["路線名"] as string],
+    ["上下線", props["上下線"] as string],
+    ["死者数", String(shishasu)],
+    ["負傷者数", String(fushoshasu)],
+    ["天候", props["天候"] as string],
+    ["地形", props["地形"] as string],
+    ["路面状態", props["路面状態"] as string],
+    ["道路形状", props["道路形状"] as string],
+    ["信号機", props["信号機"] as string],
+    ["車道幅員", props["車道幅員"] as string],
+    ["道路線形", props["道路線形"] as string],
+    ["衝突地点", props["衝突地点"] as string],
+    ["ゾーン規制", props["ゾーン規制"] as string],
+    ["中央分離帯施設等", props["中央分離帯施設等"] as string],
+    ["歩車道区分", props["歩車道区分"] as string],
+    ["事故類型", props["事故類型"] as string],
+  ];
+
+  const infoGrid = infoRows
+    .map(([label, val]) => `<span class="popup-grid-label">${label}</span><span class="popup-grid-value">${val ?? "-"}</span>`)
+    .join("");
+
+  const partyRows: [string, string, string][] = [
     ["年齢層", props["年齢（当事者A）"] as string, props["年齢（当事者B）"] as string],
     ["当事者種別", props["当事者種別（当事者A）"] as string, props["当事者種別（当事者B）"] as string],
     ["車両の衝突部位", props["車両の衝突部位（当事者A）"] as string, props["車両の衝突部位（当事者B）"] as string],
@@ -356,43 +380,36 @@ function buildPopupHtml(
     ["人身損傷程度", props["人身損傷程度（当事者A）"] as string, props["人身損傷程度（当事者B）"] as string],
     ["用途別", props["用途別（当事者A）"] as string, props["用途別（当事者B）"] as string],
     ["車両形状", props["車両形状（当事者A）"] as string, props["車両形状（当事者B）"] as string],
-    ["速度規制（指定のみ）", props["速度規制（指定のみ）（当事者A）"] as string, props["速度規制（指定のみ）（当事者B）"] as string],
-    ["一時停止規制_標識", props["一時停止規制_標識（当事者A）"] as string, props["一時停止規制_標識（当事者B）"] as string],
-    ["一時停止規制_表示", props["一時停止規制_表示（当事者A）"] as string, props["一時停止規制_表示（当事者B）"] as string],
-    ["エアバッグの装備", props["エアバッグの装備（当事者A）"] as string, props["エアバッグの装備（当事者B）"] as string],
-    ["サイドエアバッグの装備", props["サイドエアバッグの装備（当事者A）"] as string, props["サイドエアバッグの装備（当事者B）"] as string],
+    ["速度規制", props["速度規制（指定のみ）（当事者A）"] as string, props["速度規制（指定のみ）（当事者B）"] as string],
+    ["一時停止_標識", props["一時停止規制_標識（当事者A）"] as string, props["一時停止規制_標識（当事者B）"] as string],
+    ["一時停止_表示", props["一時停止規制_表示（当事者A）"] as string, props["一時停止規制_表示（当事者B）"] as string],
+    ["エアバッグ", props["エアバッグの装備（当事者A）"] as string, props["エアバッグの装備（当事者B）"] as string],
+    ["サイドエアバッグ", props["サイドエアバッグの装備（当事者A）"] as string, props["サイドエアバッグの装備（当事者B）"] as string],
   ];
 
-  const tableRows = rows
-    .map(([label, a, b]) => `<tr><td>${label}</td><td>${a}</td><td>${b}</td></tr>`)
+  const tableRows = partyRows
+    .map(([label, a, b]) => `<tr><td>${label}</td><td>${a ?? "-"}</td><td>${b ?? "-"}</td></tr>`)
     .join("");
 
   return `
-    <b><big><font color="${accentColor}">事故内容: ${jikonaiyo}</font></big></b><br>
-    発生日時: ${hasseinichiji}<br>
-    路線名: ${props["路線名"]}<br>
-    上下線: ${props["上下線"]}<br>
-    死者数: ${shishasu}<br>
-    負傷者数: ${fushoshasu}<br>
-    天候: ${props["天候"]}<br>
-    地形: ${props["地形"]}<br>
-    路面状態: ${props["路面状態"]}<br>
-    道路形状: ${props["道路形状"]}<br>
-    信号機: ${props["信号機"]}<br>
-    車道幅員: ${props["車道幅員"]}<br>
-    道路線形: ${props["道路線形"]}<br>
-    衝突地点: ${props["衝突地点"]}<br>
-    ゾーン規制: ${props["ゾーン規制"]}<br>
-    中央分離帯施設等: ${props["中央分離帯施設等"]}<br>
-    歩車道区分: ${props["歩車道区分"]}<br>
-    事故類型: ${props["事故類型"]}<br>
-    <table style="font-size:9pt;border-collapse:collapse;">
-      <tr><th width="140">項目</th><th width="100">当事者A</th><th width="100">当事者B</th></tr>
-      ${tableRows}
-    </table>
-    座標: ${lat.toFixed(7)},${lng.toFixed(7)} ※事故発生位置の座標<br>
-    <a href="https://www.google.com/maps?q=${lat},${lng}&hl=ja" target="_blank">🌎Google Maps</a>
-    <a href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${lat},${lng}&hl=ja" target="_blank">📷Street View</a>
+    <div class="popup-header" style="background: ${headerColor}">
+      ${jikonaiyo}
+      <small>${hasseinichiji}</small>
+    </div>
+    <div class="popup-body">
+      <div class="popup-section-title">事故情報</div>
+      <div class="popup-grid">${infoGrid}</div>
+      <div class="popup-section-title">当事者情報</div>
+      <table class="popup-table">
+        <thead><tr><th>項目</th><th>当事者A</th><th>当事者B</th></tr></thead>
+        <tbody>${tableRows}</tbody>
+      </table>
+      <div class="popup-coords">座標: ${lat.toFixed(7)}, ${lng.toFixed(7)}（事故発生位置）</div>
+      <div class="popup-links">
+        <a class="popup-link" href="https://www.google.com/maps?q=${lat},${lng}&hl=ja" target="_blank">🌏 Google Maps</a>
+        <a class="popup-link" href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${lat},${lng}&hl=ja" target="_blank">📷 Street View</a>
+      </div>
+    </div>
   `;
 }
 

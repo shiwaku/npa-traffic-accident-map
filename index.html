@@ -8,22 +8,36 @@
   </head>
   <body>
     <div id="map"></div>
+
+    <!-- Legend -->
     <div id="county-legend" class="legend">
-      <div class="circle" style="background-color:#ff003f;outline:1px solid #fff;display:inline-block"></div>
-      <span style="display:inline-block;margin-left:5px">死亡事故</span><br />
-      <div class="circle" style="background-color:#003fff;outline:1px solid #fff;display:inline-block"></div>
-      <span style="display:inline-block;margin-left:5px">負傷事故</span><br />
-      <div class="circle" style="background-color:#009800;outline:1px solid #fff;display:inline-block"></div>
-      <span style="display:inline-block;margin-left:5px">小学校</span><br />
-      <div class="square" style="background-color:rgb(213,241,228);outline:1px solid rgb(45,186,118);display:inline-block"></div>
-      <span style="margin-left:5px">最高速度(区域)30km/h<br />(ゾーン30等含む)</span>
-    </div>
-    <div class="map-overlay top">
-      <div class="map-overlay-inner">
-        <label>空中写真 不透明度: <span id="slider-opacity-value">50%</span></label>
-        <input id="slider-opacity" type="range" min="0" max="100" step="0" value="50" />
+      <h4>凡例</h4>
+      <div class="legend-item">
+        <div class="legend-dot" style="background: var(--accent-red)"></div>
+        <span>死亡事故</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background: var(--accent-blue)"></div>
+        <span>負傷事故</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background: var(--accent-green)"></div>
+        <span>小学校</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-square" style="background: rgba(45,186,118,0.25); border: 1.5px solid rgb(45,186,118)"></div>
+        <span>最高速度(区域)30km/h<br />(ゾーン30等含む)</span>
       </div>
     </div>
+
+    <!-- Opacity Slider -->
+    <div class="map-overlay">
+      <div class="map-overlay-inner">
+        <label>空中写真 不透明度 <span id="slider-opacity-value">50%</span></label>
+        <input id="slider-opacity" type="range" min="0" max="100" step="1" value="50" />
+      </div>
+    </div>
+
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
