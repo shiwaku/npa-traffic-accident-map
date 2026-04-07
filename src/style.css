@@ -303,23 +303,12 @@ input[type="range"]#slider-opacity::-moz-range-thumb {
 
 /* ====== Mobile layout ====== */
 @media (max-width: 520px) {
-  /* スライダーは左下に固定 */
-  .map-overlay {
-    bottom: 36px;
-    left: 10px;
-  }
-
   .map-overlay-inner {
-    width: 170px;
+    width: 140px;
   }
 
-  /* 凡例はスライダーの真上に積む */
   .legend {
-    right: auto;
-    left: 10px;
-    bottom: 120px;
-    min-width: 0;
-    width: 168px;
+    width: 140px;
   }
 
   .legend-item {
