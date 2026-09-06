@@ -157,7 +157,7 @@ map.on("load", () => {
   // ゾーン30（交通規制）ソース
   map.addSource("pmtiles-kisei", {
     type: "vector",
-    url: "pmtiles://https://xs489works.xsrv.jp/pmtiles-data/traffic-accident/jartic_kisei_202507_polygons_code114.pmtiles",
+    url: "pmtiles://https://shi-works.com/pmtiles/traffic-accident/jartic_kisei_202507_polygons_code114.pmtiles",
     attribution:
       '<a href="https://www.jartic.or.jp/">日本道路交通情報センター(JARTIC)オープンデータ「交通規制情報」を加工して作成</a>',
   });
@@ -190,7 +190,7 @@ map.on("load", () => {
   // 交通事故データ
   map.addSource("pmtiles-jiko", {
     type: "vector",
-    url: "pmtiles://https://xs489works.xsrv.jp/pmtiles-data/traffic-accident/honhyo_2019-2024_convert.pmtiles",
+    url: "pmtiles://https://shi-works.com/pmtiles/traffic-accident/honhyo_2019-2024_convert.pmtiles",
     attribution:
       '<a href="https://www.npa.go.jp/publications/statistics/koutsuu/opendata/index_opendata.html">警察庁 交通事故統計情報のオープンデータ（2019～2024年）（警察庁Webサイト）を加工して作成</a>',
   });
@@ -290,7 +290,7 @@ map.on("load", () => {
   // 小学校ソース
   map.addSource("pmtiles-school", {
     type: "vector",
-    url: "pmtiles://https://xs489works.xsrv.jp/pmtiles-data/traffic-accident/P29-21_primary_school.pmtiles",
+    url: "pmtiles://https://shi-works.com/pmtiles/traffic-accident/P29-21_primary_school.pmtiles",
     attribution:
       '<a href="https://nlftp.mlit.go.jp/">国土数値情報 学校データを加工して作成</a>',
   });

@@ -91,6 +91,6 @@ legacy-peer-deps=true
 ## データソース（PMTiles）
 | レイヤー | URL |
 |---|---|
-| 交通事故（2019-2024年） | `pmtiles://https://xs489works.xsrv.jp/pmtiles-data/traffic-accident/honhyo_2019-2024_convert.pmtiles` |
-| 交通規制（ゾーン30等） | `pmtiles://https://xs489works.xsrv.jp/pmtiles-data/traffic-accident/jartic_kisei_202507_polygons_code114.pmtiles` |
-| 小学校 | `pmtiles://https://xs489works.xsrv.jp/pmtiles-data/traffic-accident/P29-21_primary_school.pmtiles` |
+| 交通事故（2019-2024年） | `pmtiles://https://shi-works.com/pmtiles/traffic-accident/honhyo_2019-2024_convert.pmtiles` |
+| 交通規制（ゾーン30等） | `pmtiles://https://shi-works.com/pmtiles/traffic-accident/jartic_kisei_202507_polygons_code114.pmtiles` |
+| 小学校 | `pmtiles://https://shi-works.com/pmtiles/traffic-accident/P29-21_primary_school.pmtiles` |
